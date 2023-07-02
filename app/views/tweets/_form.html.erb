@@ -1,27 +1,27 @@
-<%= form_with(model: tweet) do |form| %>
-  <% if tweet.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(tweet.errors.count, "error") %> prohibited this tweet from being saved:</h2>
+<div class="container col-10">
+  <%= form_with(model: tweet, class: "tweet-form") do |form| %>
+    <% if tweet.errors.any? %>
+      <div class="error-messages">
+        <h2><%= pluralize(tweet.errors.count, "error") %> Este Tweet no puede ser guardado:</h2>
 
-      <ul>
-        <% tweet.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% tweet.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="form-group">
+      <%= form.label :Usuario, class: "block-label" %>
+      <%= form.text_field :userName, class: "form-control-user" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :Descripción, class: "block-label" %>
+      <%= form.text_field :description, class: "form-control-desc align-top" %>
+    </div>
+
+    <div class="form-actions mt-5">
+      <%= form.submit "Enviar Tweet", class: "btn btn-primary mb-5" %>
     </div>
   <% end %>
-
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_field :description %>
-  </div>
-
-  <div>
-    <%= form.label :userName, style: "display: block" %>
-    <%= form.text_field :userName %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

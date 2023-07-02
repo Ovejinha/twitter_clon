@@ -1,0 +1,187 @@
+// Color de fondo y fuente
+body {
+    background-color: #f5f8fa;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+
+  // Estilos de los tweets
+  .tweet {
+    background-color: #fff;
+    border: 1px solid #e1e8ed;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 40px;
+  }
+
+  // Las letras
+
+  h1 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    align-content: center;
+    padding-top: 10px;
+    margin: 20px;
+    color: #054064
+  }
+
+  h5 {
+    font-size: larger;
+    font-weight: bold;
+
+  }
+
+  p {
+    margin-top: 5%;
+    font-size: medium;
+  }
+
+  // Estilos del botón
+  .btn {
+    font-size: 20px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    border: none;
+  }
+
+  .btn-primary {
+    background-color: #1da1f2;
+    color: #fff;
+  }
+
+  .btn-primary:hover {
+    background-color: #0c85d0;
+  }
+
+    // Estilos del formulario de búsqueda
+  .search-form {
+    margin-bottom: 10px;
+    font-size: large;
+  }
+
+  .form-control {
+    font-size: larger;
+    border-radius: 9px;
+  }
+
+  .search-input {
+    border-radius: 25px;
+    padding: 6px 12px;
+  }
+
+  .search-button {
+    border-radius: 25px;
+    padding: 6px 12px;
+    background-color: #1da1f2;
+    color: #fff;
+    border: none;
+  }
+
+  .mas-info {
+    vertical-align: bottom;
+    margin-bottom: 5%;
+
+  }
+
+  .card-img {
+    width: 50%;
+    border-radius: 5px;
+    border-color: black;
+  }
+
+  .box-img {
+    border-radius: 100%;
+    border: #054064;
+  }
+
+  .pagination {
+    .page-item {
+      &.active {
+        background-color: white;
+        border-color:  #1da1f2;
+        a {
+          color: #1da1f2;
+        }
+      }
+
+      &.disabled {
+        a {
+          color: #ffffff;
+          pointer-events: none;
+        }
+      }
+    }
+
+    a.page-link {
+      background-color: #1da1f2;
+      border-color: #ffffff;
+      color: white;
+
+      &:hover {
+        background-color: #b7bbbe;
+        border-color: #d8e0e5;
+      }
+    }
+  }
+
+/* Estilo del formulario */
+form {
+  border-radius: 4px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/* Estilo de los campos de texto */
+form input[type="text"],
+form textarea {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  width: 100%;
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 4px;
+}
+
+/* Estilo del botón de buscar */
+form input[type="submit"] {
+  font-size: 20px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  border: none;
+}
+
+/* Estilo del enlace "Volver" */
+form a {
+  color: #1da1f2;
+  text-decoration: none;
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+/* Estilo de los mensajes de error */
+form .error-message {
+  color: #ff0000;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+/* Estilo de las Etiquetas "Nuevo Tweet" */
+
+.block-label {
+  margin: 7px;
+  font-size: large;
+  font-weight: bold;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: #0c85d0;
+}
+
+/* Estilo del campo Descripción */
+
+.form-control-desc {
+  height: 150px;
+  border-color: #d8e0e5;
+  vertical-align: top;
+
+}
+
+.form-control-user {
+  border-color: #d8e0e5;
+
+}

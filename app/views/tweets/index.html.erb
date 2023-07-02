@@ -1,23 +1,80 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Tweets</h1>
-
-<%= form_tag(tweets_path, method: "get", class: "form-inline mt-3") do %>
-  <div class="form-group">
-    <%= text_field_tag(:search, params[:search], class: "form-control mr-2", placeholder: "Buscar tweets") %>
-    <%= submit_tag("Buscar", class: "btn btn-primary") %>
+<div class="container col-10">
+  <div class="d-flex">
+      <div class="col-8">
+        <%= form_tag(tweets_path, method: "get", class: "form-inline mt-4 mr-2") do %>
+          <div class="input-group">
+            <%= text_field_tag(:search, params[:search], class: "form-control mr-2", placeholder: "Buscar tweets") %>
+              <div class="input-group-append">
+                <%= submit_tag("Buscar", class: "btn btn-primary ms-4") do %>
+                  <i class="fas fa-search"></i>
+                <% end %>
+              </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="justify-content-end mt-4 ms-2 mb-4">
+        <%= link_to "Nuevo Tweet", new_tweet_path, class: "btn btn-primary" %>
+      </div>
   </div>
-<% end %>
+  <div id="tweets" class="col-10">
+    <% @tweets.each do |tweet| %>
+      <div class="card mb-3">
+        <div class="row justify-content-center">
+          <div class="col-4 mt-4 box-img">
+            <!-- Agrega aquí la imagen del tweet -->
+            <%= image_tag("tweet_image.png", class: "card-img rounded-circle mx-auto d-block", alt: "Tweet Image", style: "border: 1px solid #e2e2e2; width: 100px; height: 100px; object-fit: cover;") %>
+          </div>
+          <div class="col-md-6">
+            <div class="card-body">
+              <h5 class="card-title"><%= tweet.userName %></h5>
+              <p class="card-text"><%= tweet.description %></p>
+              <p class="card-text">
+                <%= link_to "+ Info", tweet, class: "btn btn-primary mas-info" %>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div>
+<nav aria-label="...">
+  <ul class="pagination">
+    <% if @tweets.total_pages > 1 %>
+      <% if @tweets.current_page > 1 %>
+        <li class="page-item">
+          <%= link_to "Previous", tweets_path(page: @tweets.current_page - 1), class: "page-link" %>
+        </li>
+      <% else %>
+        <li class="page-item disabled">
+          <span class="page-link">Anterior</span>
+        </li>
+      <% end %>
 
-<div id="tweets">
-  <% @tweets.each do |tweet| %>
-    <%= render tweet %>
-    <p>
-      <%= link_to "Show this tweet", tweet %>
-    </p>
-  <% end %>
+      <% @tweets.total_pages.times do |page| %>
+        <% if @tweets.current_page == page + 1 %>
+          <li class="page-item active" aria-current="page">
+            <span class="page-link"><%= page + 1 %></span>
+          </li>
+        <% else %>
+          <li class="page-item">
+            <%= link_to page + 1, tweets_path(page: page + 1), class: "page-link" %>
+          </li>
+        <% end %>
+      <% end %>
+
+      <% if @tweets.current_page < @tweets.total_pages %>
+        <li class="page-item">
+          <%= link_to "Siguiente", tweets_path(page: @tweets.current_page + 1), class: "page-link" %>
+        </li>
+      <% else %>
+        <li class="page-item disabled">
+          <span class="page-link">Next</span>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+</nav>
+
+  </div>
 </div>
-
-<%= will_paginate @tweets %>
-
-<%= link_to "New tweet", new_tweet_path %>

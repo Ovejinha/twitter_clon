@@ -71,4 +71,11 @@ group :test do
   gem "webdrivers"
 end
 
-gem "will_paginate"
+gem 'kaminari'
+
+gem "bootstrap"
+
+gem "webpacker"
+
+gem "faker"
+

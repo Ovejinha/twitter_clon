@@ -1,22 +1,24 @@
 class TweetsController < ApplicationController
+  include Kaminari::PageScopeMethods
   before_action :set_tweet, only: [:show, :edit, :update, :destroy]
 
   # GET /tweets or /tweets.json
   def index
-    @tweets = Tweet.paginate(page: params[:page], per_page: 10)
+    @tweets = Tweet.paginate(page: params[:page], per_page: 2)
   end
 
   def index
-    @tweets = Tweet.where("description LIKE ?", "%#{params[:search]}%").paginate(page: params[:page], per_page: 10)
+    @tweets = Tweet.where("description LIKE ?", "%#{params[:search]}%").page(params[:page]).per(5)
   end
 
   # GET /tweets/1 or /tweets/1.json
   def show
   end
 
-  # GET /tweets/new
   def new
     @tweet = Tweet.new
+    @tweet.userName = Faker::Twitter.screen_name
+    @tweet.description = Faker::Lorem.sentence
   end
 
   # GET /tweets/1/edit

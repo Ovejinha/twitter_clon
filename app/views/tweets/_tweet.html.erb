@@ -1,12 +1,37 @@
-<div id="<%= dom_id tweet %>">
-  <p>
-    <strong>Description:</strong>
-    <%= tweet.description %>
-  </p>
-
-  <p>
-    <strong>Username:</strong>
-    <%= tweet.userName %>
-  </p>
-
+<div class="container col-10">
+  <div class="d-flex">
+      <div class="col-10">
+      <%= form_tag(tweets_path, method: "get", class: "form-inline mt-4 mr-2") do %>
+        <div class="input-group">
+          <%= text_field_tag(:search, params[:search], class: "form-control mr-2", placeholder: "Buscar tweets") %>
+          <div class="input-group-append">
+            <%= submit_tag("Buscar", class: "btn btn-primary ms-3") do %>
+            <% end %>
+            <%= link_to "Volver", tweets_path, class: "btn btn-primary" %>
+          </div>
+        </div>
+      <% end %>
+      </div>
+  </div>
+  <div class="col-10 bg-white">
+    <div class="col-12 mt-5">
+      <h1>Tweet Detallado</h1>
+      <div>
+          <div class="col-10 m-4" id="<%= dom_id tweet %>">
+          <p>
+            <strong>Description:</strong>
+            <%= tweet.description %>
+          </p>
+          <p>
+            <strong>Username:</strong>
+            <%= tweet.userName %>
+          </p>
+          </div>
+      </div>
+    <div>
+  </div>
 </div>
+
+
+
+
