@@ -75,7 +75,4 @@ gem 'kaminari'
 
 gem "bootstrap"
 
-gem "webpacker"
-
 gem "faker"
-
